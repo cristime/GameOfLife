@@ -6,9 +6,9 @@
 ## 使用方法
 安装一个 C++ 编译器（支持 C++11），cmake（>= 2.6）
 ```bash
-git clone https://github.com/cristime/CppDemo.git
-mkdir CppDemo/GameOfLife/build
-cd CppDemo/GameOfLife/build
+git clone https://github.com/cristime/GameOfLife.git
+mkdir GameOfLife/build
+cd GameOfLife/build
 cmake ..
 make
 ```
