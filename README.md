@@ -1,6 +1,6 @@
 # GameOfLife
 
-[English Version](https://hub.fastgit.org/cristime/GameOfLife/blob/master/README.md)
+[English Version](https://github.com/cristime/GameOfLife/blob/master/README.md)
 
 ## 介绍
 使用 C++ 编写的 Conway 生命游戏，可以自定义地图。
