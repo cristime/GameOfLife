@@ -23,7 +23,6 @@
 #include <ctime>
 
 int n, m, iterNum = 0, aliveNum = 0;
-// bool mp[MAXL][MAXL], tmp[MAXL][MAXL];
 std::map<std::pair<int, int>, bool> aliveCells; // 用 map 来存储活细胞，pair 来表示其横纵坐标
 std::string fileName;
 cmdline::parser argParser;
@@ -36,8 +35,8 @@ int main(int argc, char **argv)
 	argParser.add<int>("height", 'h', "map height", false, 50);
 	argParser.add<bool>("type", 't', "is rand map", false, true);
 	argParser.add<std::string>("config", 'c', "config file path(if rand map disabled)", false);
-	argParser.add<bool>("useSleep", '\0', "Use sleep instead of getchar", false);
-	argParser.add<unsigned>("sleepTime", '\0', "Sleep time(ms) (if useSleep option enabled)", 500);
+	argParser.add<bool>("useSleep", '\0', "Use sleep instead of getchar", false, false);
+	argParser.add<unsigned>("sleepTime", '\0', "Sleep time(ms) (if useSleep option enabled)", false, 500);
 
 	argParser.parse_check(argc, argv);
 
@@ -93,14 +92,12 @@ void Iteration()
 	std::map<std::pair<int, int>, bool> another;
 	another.clear();
 	++iterNum;
-	// CopyMap(mp, tmp);
 	for (int i = 1; i <= n; i++)
 		for (int j = 1; j <= m; j++)
 		{
 			unsigned nearAliveNum = 0;
 			for (int k = 0; k < 8; k++)
 				nearAliveNum += (aliveCells[std::make_pair(i + dx[k], j + dy[k])] ? 1 : 0);
-			// 	nearAliveNum += mp[i + dx[k]][j + dy[k]] ? 1 : 0;
 			if (nearAliveNum == 3)
 				another[std::make_pair(i, j)] = 1;
 			else if (nearAliveNum == 2 && aliveCells[std::make_pair(i, j)])
@@ -110,7 +107,6 @@ void Iteration()
 		}
 	aliveCells.clear();
 	aliveCells = another;
-	// CopyMap(tmp, mp);
 	aliveNum = 0;
 	for (int i = 1; i <= n; i++)
 		for (int j = 1; j <= m; j++)
@@ -119,7 +115,6 @@ void Iteration()
 
 void PrintMap()
 {
-	// system("cls");
 	CLEARWINDOW;
 	std::cout << "Iteration num: " << iterNum << std::endl;
 	for (int i = 1; i <= n; i++)
