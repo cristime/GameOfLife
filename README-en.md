@@ -4,13 +4,12 @@
 Conway life game written in C++, you can customize the map.
 
 ## Using instructions
-Install a C++ compiler (support C++11), cmake (>= 2.8.12), ninja-build
+Install a C++ compiler (support C++11), cmake (>= 2.8.12), make 
 ```bash
 git clone https://github.com/cristime/GameOfLife.git
 mkdir GameOfLife/build
 cd GameOfLife/build
-cmake .. -G Ninja # Can be omitted in the second run
-ninja
+cmake .. && make
 ```
 
 For specific use, see the command line parameter description

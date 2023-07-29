@@ -6,13 +6,12 @@
 使用 C++ 编写的 Conway 生命游戏，可以自定义地图。
 
 ## 使用方法
-安装一个 C++ 编译器（支持 C++11），cmake（>= 2.8.12），ninja-build
+安装一个 C++ 编译器（支持 C++11），cmake（>= 2.8.12），make
 ```bash
 git clone https://github.com/cristime/GameOfLife.git
 mkdir GameOfLife/build
 cd GameOfLife/build
-cmake .. -G Ninja   # 第二次运行时可省略
-ninja
+cmake .. && make
 ```
 
 具体使用见命令行参数说明

@@ -7,7 +7,7 @@
 
 #if defined (_WIN32)
 #define CLEARWINDOW system("cls")
-#define SLEEP(SLEEPTIME) Sleep(SLEEPTIME)
+#define SLEEP(SLEEPTIME) _sleep(SLEEPTIME)
 #else
 #include <unistd.h>
 #define CLEARWINDOW system("clear")
